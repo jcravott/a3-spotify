@@ -2,7 +2,7 @@
 <a [routerLink]="['/', resource.category, resource.id]">
   <!--bind src with the album/artist/song image URRL-->
   <img class="d-block w-100" [src]="resource.imageURL" [alt]="resource.name">
-  <div class="carousel-caption d-none d-md-block">
+  <div class="carousel-caption">
     <!--populate h5 with the album/artist/song name-->
     <h5>{{ resource.name }}</h5>
   </div>

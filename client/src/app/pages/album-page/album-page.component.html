@@ -7,7 +7,7 @@
 			<!--populate with album name-->
 			<h1>{{ album.name }}</h1>
 			<!--set src to album image URL-->
-			<img id="albumImg" [src]="album.imageURL" [alt]="album.name">
+			<img id="albumImg" style="max-width: min(400px, 100%);" [src]="album.imageURL" [alt]="album.name">
 			<!--add thermometer with album's popularity -->
 			<app-thermometer [popularity]="album.popularity"></app-thermometer>
 			@if(album.genres?.length) {

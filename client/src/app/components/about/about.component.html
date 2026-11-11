@@ -6,7 +6,7 @@
 <!--replace ??? to bind to name-->
 <h3>Logged in user: {{ name }}</h3>
 <!--bind img src's to profile_pic-->
-<img [src]="profile_pic" class="profile" alt="User profile picture">
+<img [src]="profile_pic" class="profile" style="max-width: min(400px, 100%);" alt="User profile picture">
 <p>
   <!--bind link's href to profile_link-->
   <a class="btn btn-light" [href]="profile_link" target="_blank" rel="noopener noreferrer">Open profile on Spotify</a>

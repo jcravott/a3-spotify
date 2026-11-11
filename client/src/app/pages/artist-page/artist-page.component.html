@@ -7,7 +7,7 @@
 			<!--populate with artist name-->
 			<h1>{{ artist.name }}</h1>
 			<!--populate with artist image URL-->
-			<img id="artistImg" [src]="artist.imageURL" [alt]="artist.name">
+			<img id="artistImg" style="max-width: min(400px, 100%);" [src]="artist.imageURL" [alt]="artist.name">
 			@if(artist.genres?.length) {
 				<p>Genres: {{ artist.genres.join(', ') }}</p>
 			}
