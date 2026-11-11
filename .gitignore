@@ -44,3 +44,6 @@ Thumbs.db
 
 webserver/tokens.json
 webserver/client_secret.json
+/dummy_webserver/
+A3_instructions.pdf
+*.zip
