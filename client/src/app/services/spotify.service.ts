@@ -54,33 +54,39 @@ export class SpotifyService {
   }
 
   getArtist(artistId:string):Promise<ArtistData> {
-    //TODO: use the artist endpoint to make a request to express.
+    //use the artist endpoint to make a request to express.
     //Again, you may need to encode the artistId.
-    return null as any;
+    return this.sendRequestToExpress('/artist/' + encodeURIComponent(artistId))
+      .then((data) => new ArtistData(data));
   }
 
   getTopTracksForArtist(artistId:string):Promise<TrackData[]> {
-    //TODO: use the top tracks endpoint to make a request to express.
-    return null as any;
+    //use the top tracks endpoint to make a request to express.
+    return this.sendRequestToExpress('/artist-top-tracks/' + encodeURIComponent(artistId))
+      .then((data) => data.tracks.map((track) => new TrackData(track)));
   }
 
   getAlbumsForArtist(artistId:string):Promise<AlbumData[]> {
-    //TODO: use the albums for an artist endpoint to make a request to express.
-    return null as any;
+    //use the albums for an artist endpoint to make a request to express.
+    return this.sendRequestToExpress('/artist-albums/' + encodeURIComponent(artistId))
+      .then((data) => data.items.map((album) => new AlbumData(album)));
   }
 
   getAlbum(albumId:string):Promise<AlbumData> {
-    //TODO: use the album endpoint to make a request to express.
-    return null as any;
+    //use the album endpoint to make a request to express.
+    return this.sendRequestToExpress('/album/' + encodeURIComponent(albumId))
+      .then((data) => new AlbumData(data));
   }
 
   getTracksForAlbum(albumId:string):Promise<TrackData[]> {
-    //TODO: use the tracks for album endpoint to make a request to express.
-    return null as any;
+    //use the tracks for album endpoint to make a request to express.
+    return this.sendRequestToExpress('/album-tracks/' + encodeURIComponent(albumId))
+      .then((data) => data.items.map((track) => new TrackData(track)));
   }
 
   getTrack(trackId:string):Promise<TrackData> {
-    //TODO: use the track endpoint to make a request to express.
-    return null as any;
+    //use the track endpoint to make a request to express.
+    return this.sendRequestToExpress('/track/' + encodeURIComponent(trackId))
+      .then((data) => new TrackData(data));
   }
 }
