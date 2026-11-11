@@ -1,3 +1,4 @@
+import { RecentSearch, SavedItemsService } from '../../services/saved-items.service';
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 import { TrackData } from '../../data/track-data';
@@ -20,12 +21,22 @@ export class SearchComponent implements OnInit {
   searching:boolean = false;
   errorMessage:string = '';
 
-  constructor(private spotifyService:SpotifyService) { }
+  constructor(private spotifyService:SpotifyService, public savedItems:SavedItemsService) { }
 
   ngOnInit() {
   }
 
+  repeatSearch(entry:RecentSearch) {
+    if (this.searching) return;
+    this.searchString = entry.query;
+    this.searchCategory = entry.category;
+    this.search();
+  }
+
   search() {
+    if (this.searching || !this.searchString.trim()) return;
+    this.searchString = this.searchString.trim();
+    this.savedItems.saveSearch(this.searchString, this.searchCategory);
     //call search function in spotifyService and parse response
     const category = this.searchCategory;
     //Remove the old carousel so each new result set starts on its first card.

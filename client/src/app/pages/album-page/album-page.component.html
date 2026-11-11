@@ -6,6 +6,7 @@
 		<div class="col-12 col-sm-6">
 			<!--populate with album name-->
 			<h1>{{ album.name }}</h1>
+			<app-favorite-button [resource]="album"></app-favorite-button>
 			<!--set src to album image URL-->
 			<img id="albumImg" style="max-width: min(400px, 100%);" [src]="album.imageURL" [alt]="album.name">
 			<!--add thermometer with album's popularity -->

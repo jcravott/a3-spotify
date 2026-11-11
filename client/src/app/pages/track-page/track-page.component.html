@@ -6,6 +6,7 @@
 		<div class="col-sm-6 col-12">
 			<!--populate with track name-->
 			<h1>{{ track.name }}</h1>
+			<app-favorite-button [resource]="track"></app-favorite-button>
 			<p>
 				<!--link to album page, display album name-->
 				Track on <a [routerLink]="['/album', track.album.id]">{{ track.album.name }}</a>

@@ -1,3 +1,4 @@
+import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
@@ -31,6 +32,7 @@ import { ThermometerComponent } from './components/thermometer/thermometer.compo
     ThermometerComponent
   ],
   imports: [
+    FavoriteButtonComponent,
     BrowserModule,
     HttpClientModule,
     FormsModule,

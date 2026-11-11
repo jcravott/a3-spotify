@@ -2,3 +2,29 @@
 	<app-about class="col-12 col-sm-6"></app-about>
 	<app-search class="col-12 col-sm-6"></app-search>
 </div>
+<section class="my-4" aria-label="Favorites">
+  <h2>Favorites</h2>
+  @if(savedItems.favorites().length) {
+    <div class="row g-3">
+      @for(category of favoriteCategories; track category) {
+        <div class="col-12 col-md-4">
+          <h3 class="h5 text-capitalize">{{ category }}s</h3>
+          <ul class="list-group">
+            @for(favorite of savedItems.favoritesFor(category); track favorite.id) {
+              <li class="list-group-item d-flex align-items-center gap-2">
+                <a class="flex-grow-1 text-break" [routerLink]="['/', favorite.category, favorite.id]">{{ favorite.name }}</a>
+                <button type="button" class="btn btn-outline-light btn-sm m-0 flex-shrink-0"
+                  [attr.aria-label]="'Remove ' + favorite.name + ' from favorites'"
+                  (click)="savedItems.removeFavorite(favorite.category, favorite.id)">Remove</button>
+              </li>
+            } @empty {
+              <li class="list-group-item text-body-secondary">No favorites yet.</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  } @else {
+    <p class="text-body-secondary">Save artists, albums, and tracks using the favorite button on their pages.</p>
+  }
+</section>

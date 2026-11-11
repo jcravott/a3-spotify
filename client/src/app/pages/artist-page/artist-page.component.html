@@ -6,6 +6,7 @@
 		<div class="col-xl-4 col-12">
 			<!--populate with artist name-->
 			<h1>{{ artist.name }}</h1>
+			<app-favorite-button [resource]="artist"></app-favorite-button>
 			<!--populate with artist image URL-->
 			<img id="artistImg" style="max-width: min(400px, 100%);" [src]="artist.imageURL" [alt]="artist.name">
 			@if(artist.genres?.length) {
